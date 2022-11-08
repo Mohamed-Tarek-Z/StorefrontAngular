@@ -1,1 +1,13 @@
-<p>header works!</p>
+<header fxLayout="column" fxLayoutAlign="space-between center">
+    <h1> My Store </h1>
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <a routerLink="/" ngbNavLink>Products</a>
+        </li>
+        <li [ngbNavItem]="2">
+            <a routerLink="cart/" ngbNavLink>Cart</a>
+        </li>
+    </ul>
+</header>
+
+<!-- Navbar -->

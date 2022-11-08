@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  active: number = 1;
   constructor() { }
 
   ngOnInit(): void {
+    this.active = 1;
   }
 
 }

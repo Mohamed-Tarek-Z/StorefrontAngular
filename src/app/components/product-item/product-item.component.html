@@ -1,1 +1,16 @@
-<p>product-item works!</p>
+<div class="product-container">
+    <a routerLink="product/{{ product.id }}">
+        <img class="product-image" src='{{ product.url }}'>
+    </a>
+    <div><b>{{ product.name }}</b></div>
+    <div>$ {{ product.price}}</div>
+
+    <form fxLayout="column" fxLayoutAlign="space-between center" (ngSubmit)="onSubmit()">
+        <select [(ngModel)]="amount" class="select-input" name="amount">
+            <option *ngFor="let i of count" value="{{ i }}">
+                {{ i }}
+            </option>
+        </select>
+        <input type="submit" value="Add to Cart" class="btn btn-primary">
+    </form>
+</div>
