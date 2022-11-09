@@ -1,17 +1,12 @@
 <div *ngIf="cartItems.length; else empty" class="cart-container">
     <div class="cart-item-details">
-        <div *ngFor="let item of cartItems" class="cart-item">
-            <img class="" src='{{item.url}}'>
-            <div class="cart-panel">
-                <div>{{ item.name}}</div>
-                <div>{{ item.price | currency: "USD" }}</div>
-                <input type='number' #amountva (change)="selectChange(amountva.value, item)" class='number-input'
-                    [value]="item.amount" />
-            </div>
-        </div>
+        <app-cart-item *ngFor="let item of cartItems" [cart]="cartItems" [item]="item"
+            (change)="calculateTotal()"></app-cart-item>
         <div class="cart-item"><b>Total Price: {{ totalPrice | currency: "USD" }}</b></div>
     </div>
-    <app-user-data-form (name)="onSubmit($event)"></app-user-data-form>
+    <div class="cart-item-details">
+        <app-user-data-form (name)="onSubmit($event)"></app-user-data-form>
+    </div>
 </div>
 <ng-template #empty>
     <div class="empty-cart-message">

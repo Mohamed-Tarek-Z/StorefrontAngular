@@ -24,23 +24,12 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotal(): void {
+    this.cartItems = this.cartSer.getCartItems();
     this.totalPrice = this.cartItems.reduce((tot, item) => {
       this.totalPrice = parseFloat(
         (tot + item.price * Number(item.amount)).toFixed(2)
       );
       return this.totalPrice;
     }, 0);
-  }
-
-  selectChange(amount: string, item: Cart) {
-    const index = this.cartItems.indexOf(item);
-    this.cartItems[index] = item;
-    this.cartItems[index].amount = amount;
-    if (parseInt(amount) > 0)
-      this.cartSer.addToCart(this.cartItems);
-    else
-      this.cartSer.removeFromCart(item);
-    this.calculateTotal();
-    window.location.reload();
   }
 }

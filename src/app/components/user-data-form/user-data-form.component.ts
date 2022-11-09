@@ -9,16 +9,16 @@ export class UserDataFormComponent implements OnInit {
 
   @Output() name: EventEmitter<string> = new EventEmitter();
 
-  firstName: string = '';
+  fullName: string = '';
   address: string = '';
-  creditCard: number = 0;
+  creditCard!: number;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    this.name.emit(this.firstName);
+    this.name.emit(this.fullName);
   }
 
 }

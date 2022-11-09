@@ -17,6 +17,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserDataFormComponent } from './components/user-data-form/user-data-form.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     OrderConfirmationComponent,
     CartComponent,
     HeaderComponent,
-    UserDataFormComponent
+    UserDataFormComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,
