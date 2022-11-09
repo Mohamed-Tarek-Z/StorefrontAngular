@@ -23,12 +23,9 @@ export class ProductItemDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.id = Number(params.get('id'));
     });
-    this.proSer.getProducts().subscribe({
-      next: (res) => {
-        this.pros = res;
-        this.product = this.pros.filter((item) => item.id === this.id)[0];
-      },
-      error: (err) => console.log(err),
+    this.proSer.getProducts().subscribe((res) => {
+      this.pros = res;
+      this.product = this.pros.filter((item) => item.id === this.id)[0];
     });
   }
 
