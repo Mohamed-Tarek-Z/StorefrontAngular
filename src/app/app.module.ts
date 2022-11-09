@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserDataFormComponent } from './components/user-data-form/user-data-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductItemComponent,
     OrderConfirmationComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+    UserDataFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../../models/cart';
+import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -6,10 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
-  constructor() { }
+  cartItems!: Cart[];
+  totalPrice!: number;
+  constructor(private cartSer: CartService, private router: Router) { }
 
   ngOnInit(): void {
+    this.cartItems = this.cartSer.getCartItems();
+    this.calculateTotal();
   }
 
+  onSubmit(name: string) {
+    this.cartSer.clearCart();
+    this.router.navigate([`confirm/${name}/${this.totalPrice}`]);
+  }
+
+  calculateTotal(): void {
+    this.totalPrice = this.cartItems.reduce((tot, item) => {
+      this.totalPrice = parseFloat(
+        (tot + item.price * Number(item.amount)).toFixed(2)
+      );
+      return this.totalPrice;
+    }, 0);
+  }
+
+  selectChange(amount: string, item: Cart) {
+    const index = this.cartItems.indexOf(item);
+    this.cartItems[index] = item;
+    this.cartItems[index].amount = amount;
+    if (parseInt(amount) > 0)
+      this.cartSer.addToCart(this.cartItems);
+    else
+      this.cartSer.removeFromCart(item);
+    this.calculateTotal();
+    window.location.reload();
+  }
 }

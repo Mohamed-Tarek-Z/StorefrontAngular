@@ -16,6 +16,11 @@ export class CartService {
   addToCart(cartpro: Cart[]): void {
     this.storage.setItem('cart', JSON.stringify(cartpro));
   }
+  removeFromCart(cartpro: Cart): void {
+    let cartpros = this.getCartItems().filter(item => item.id !== cartpro.id);
+    this.clearCart();
+    this.addToCart(cartpros);
+  }
 
   clearCart(): void {
     this.storage.clear();
