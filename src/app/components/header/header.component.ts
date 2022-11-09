@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   active: number = 1;
+  faCart = faCartShopping;
   constructor() { }
 
   ngOnInit(): void {

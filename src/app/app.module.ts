@@ -16,6 +16,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { CartComponent } from './components/cart/cart.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserDataFormComponent } from './components/user-data-form/user-data-form.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserDataFormComponent } from './components/user-data-form/user-data-for
     NgbModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

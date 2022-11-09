@@ -4,16 +4,17 @@
             <img class="" src='{{item.url}}'>
             <div class="cart-panel">
                 <div>{{ item.name}}</div>
-                <div>$ {{ item.price}}</div>
-                <input type='number' #amountva (change)="selectChange(amountva.value, item)" class='number-input' [value]="item.amount"/>
+                <div>{{ item.price | currency: "USD" }}</div>
+                <input type='number' #amountva (change)="selectChange(amountva.value, item)" class='number-input'
+                    [value]="item.amount" />
             </div>
         </div>
-        <div class="cart-item"><b>Total Price: ${{ totalPrice }}</b></div>
+        <div class="cart-item"><b>Total Price: {{ totalPrice | currency: "USD" }}</b></div>
     </div>
     <app-user-data-form (name)="onSubmit($event)"></app-user-data-form>
 </div>
 <ng-template #empty>
     <div class="empty-cart-message">
-        Cart is Empty! try to &nbsp; <a routerLink="/">  add product to cart</a>.
+        Cart is Empty! try to &nbsp; <a routerLink="/"> add product to cart</a>.
     </div>
 </ng-template>

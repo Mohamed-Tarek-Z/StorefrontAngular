@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faGifts } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-order-confirmation',
@@ -8,13 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  firstName!: string | null;
+  name!: string | null;
   totalPrice!: number;
+  fag = faGifts;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.firstName = params.get('name');
+      this.name = params.get('name');
       this.totalPrice = Number(params.get('total'));
     })
   }
